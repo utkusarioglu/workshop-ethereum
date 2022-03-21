@@ -4,9 +4,9 @@
     "module": "commonjs",
     "baseUrl": "./",
     "paths": {
-      "_services/*": ["./src/services/*"],
+      "_services/*": ["src/services/*"],
       "_tasks/*": ["src/tasks/*"],
-      "_types/*": ["./src/types/*"],
+      "_types/*": ["src/types/*"],
       "_typechain/*": ["lib/typechain/*"]
     },
     "esModuleInterop": true,
