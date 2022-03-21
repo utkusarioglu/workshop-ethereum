@@ -1,0 +1,13 @@
+{
+  "name": "Hardhat",
+  "dockerComposeFile": ["../docker-compose.dev.yml", "docker-compose.yml"],
+  "service": "hardhat",
+  "workspaceFolder": "/usr/src/app/hardhat",
+  "settings": {
+    "workbench.colorCustomizations": {
+      "activityBar.background": "#a40"
+    }
+  },
+  "extensions": ["JuanBlanco.solidity", "MythX.mythxvsc"],
+  "postCreateCommand": "yarn"
+}
