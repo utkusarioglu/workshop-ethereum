@@ -1,6 +1,6 @@
 import { run, ethers } from "hardhat";
 import { expect } from "chai";
-import type { ChainlinkConsumer } from "_contract-types/ChainlinkConsumer";
+import type { ChainlinkConsumer } from "_typechain/ChainlinkConsumer";
 import config from "config";
 
 type DeployArgs = [string];

@@ -6,8 +6,8 @@ import "@nomiclabs/hardhat-waffle";
 import "hardhat-spdx-license-identifier";
 import "solidity-coverage";
 import "@openzeppelin/hardhat-upgrades";
-import "_tasks/account-balances";
-import "_tasks/named-accounts";
+import "src/tasks/account-balances";
+import "src/tasks/named-accounts";
 import "hardhat-storage-layout";
 import "@nomiclabs/hardhat-etherscan";
 import "hardhat-deploy";
@@ -24,15 +24,16 @@ import {
 } from "_services/accounts";
 
 const hardhatConfig = {
-  solidity: "0.8.12",
+  solidity: "0.8.9",
   paths: {
     sources: "./src/contracts",
-    tests: "./tests",
-    cache: "./cache",
-    artifacts: "./artifacts",
-    deployments: "./artifacts/deployments",
-    deploy: "./src/deploy",
-    newStorageLayoutPath: "./artifacts/storage-layout",
+    tests: "tests",
+    cache: "cache",
+    artifacts: "lib/artifacts",
+    imports: "lib/imports",
+    deployments: "lib/deployments",
+    deploy: "src/deploy",
+    newStorageLayoutPath: "lib/storage-layout",
   },
   settings: {
     optimizer: {
@@ -86,9 +87,9 @@ const hardhatConfig = {
   namedAccounts: namedAccounts(),
 
   typechain: {
-    outDir: "artifacts/types",
+    outDir: "./lib/typechain",
     target: "ethers-v5",
-    alwaysGenerateOverloads: true,
+    alwaysGenerateOverloads: false,
   },
   spdxLicenseIdentifier: {
     overwrite: true,

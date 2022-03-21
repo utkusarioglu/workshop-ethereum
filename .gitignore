@@ -2,5 +2,6 @@ node_modules
 *.log
 *.env
 /artifacts
-!/artifacts/deployments
 cache
+/types
+/lib

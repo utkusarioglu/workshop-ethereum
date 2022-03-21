@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity 0.8.12;
+pragma solidity 0.8.9;
 
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 
@@ -12,13 +12,7 @@ contract ChainlinkConsumer {
   }
 
   function getLatestPrice() external view returns (int256) {
-    (
-      uint80 roundId,
-      int256 price,
-      uint256 startedAt,
-      uint256 updatedAt,
-      uint80 answeredInRound
-    ) = priceFeed.latestRoundData();
+    (, int256 price, , , ) = priceFeed.latestRoundData();
     return price;
   }
 }

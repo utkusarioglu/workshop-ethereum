@@ -1,7 +1,7 @@
 import { run, ethers } from "hardhat";
 import { assert } from "chai";
 import config from "config";
-import type { MyVault } from "../artifacts/types/MyVault";
+import type { MyVault } from "_typechain/MyVault";
 
 type DeployArgs = [string, string, string, string, string];
 
