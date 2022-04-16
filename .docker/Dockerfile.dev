@@ -1,4 +1,7 @@
 FROM node:16
 RUN apt-get update
 RUN apt-get install vim git -y
+# This is needed because mounting of gh config 
+# path interferes with folder permissions
+RUN mkdir -p /home/node/.config/hardhat-nodejs
 USER node
