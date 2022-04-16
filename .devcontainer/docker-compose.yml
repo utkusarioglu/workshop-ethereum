@@ -4,6 +4,7 @@ services:
     volumes:
       - vscode-extensions:/root/.vscode-server/extensions
       - vscode-extensions-insiders:/root/.vscode-server-insiders/extensions
+      - ~/.config/gh:/home/node/.config/gh:ro
     command: /bin/sh -c "while sleep 1000; do :; done"
 
 volumes:
