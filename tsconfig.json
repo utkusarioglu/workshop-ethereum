@@ -7,7 +7,9 @@
       "_services/*": ["src/services/*"],
       "_tasks/*": ["src/tasks/*"],
       "_types/*": ["src/types/*"],
-      "_typechain/*": ["lib/typechain/*"]
+      "_typechain/*": ["lib/typechain/*"],
+      "_artifacts/*": ["lib/artifacts/*"],
+      "_deployments/*": ["lib/deployments/*"]
     },
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -28,6 +30,7 @@
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "resolveJsonModule": true
   }
 }
