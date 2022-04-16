@@ -8,6 +8,7 @@ import "solidity-coverage";
 import "@openzeppelin/hardhat-upgrades";
 import "_tasks/account-balances";
 import "_tasks/named-accounts";
+import "_tasks/get-latest-price";
 import "hardhat-storage-layout";
 import "@nomiclabs/hardhat-etherscan";
 import "hardhat-deploy";
