@@ -27,7 +27,6 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          context: ..
           tags: |
             utkusarioglu/ethereum-dev-environment:latest
           file: .docker/Dockerfile.dev
