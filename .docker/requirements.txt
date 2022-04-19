@@ -1,0 +1,7 @@
+crytic-compile 
+manticore[native] 
+slither-analyzer 
+solc-select
+graphviz
+cbor2
+pyevmasm

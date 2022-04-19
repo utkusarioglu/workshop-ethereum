@@ -1,7 +1,61 @@
-FROM node:16
-RUN apt-get update
-RUN apt-get install vim git -y
-# This is needed because mounting of gh config 
-# path interferes with folder permissions
-RUN mkdir -p /home/node/.config/hardhat-nodejs
-USER node
+# ppa:ethereum is not yet available on 22.04
+FROM ubuntu:20.04
+
+ENV DEBIAN_FRONTEND=nonintercative
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
+  bash-completion \
+  build-essential \
+  ca-certificates \
+  curl \
+  git \
+  gpg-agent \
+  libpython3-dev \
+  libudev-dev \
+  locales-all locales \
+  python3 \
+  python3-pip \
+  python3-setuptools \
+  python3.8-venv \
+  software-properties-common \
+  sudo \
+  vim \
+  wget \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
+
+RUN add-apt-repository -y ppa:ethereum/ethereum && \
+  apt-get update && \
+  apt-get install -y --no-install-recommends \
+  solc \
+  ethereum \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
+
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+RUN apt-get update \
+  && apt-get install -y nodejs \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
+
+RUN npm install --global yarn
+
+ENV VIRTUAL_ENV=/opt/venv
+RUN python3 -m venv $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+COPY requirements.txt .
+RUN pip install -r requirements.txt --no-input --no-cache-dir
+
+RUN cd $VIRTUAL_ENV/bin && \
+  wget https://github.com/crytic/echidna/releases/download/v2.0.0/echidna-test-2.0.0-Ubuntu-18.04.tar.gz \
+    -O echidna.tar.gz \
+  && tar -xzf echidna.tar.gz \
+  && rm echidna.tar.gz
+
+ARG ROOT_PASS=root
+# This is for crytic-compile binary
+ENV PATH="${PATH}:${HOME}/.local/bin"
+RUN sh -c 'echo "root:$ROOT_PASS" | chpasswd'
+RUN useradd -m hardhat
+RUN mkdir -p /home/hardhat/.config/hardhat-nodejs
+USER hardhat

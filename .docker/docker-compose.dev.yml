@@ -2,8 +2,7 @@ version: "3.9"
 
 services:
   hardhat:
-    build:
-      context: ..
-      dockerfile: .docker/Dockerfile.dev
+    image: utkusarioglu/ethereum-dev-environment
+    container_name: workshop-hardhat
     volumes:
       - ..:/usr/src/app/hardhat

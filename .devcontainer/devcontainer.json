@@ -12,7 +12,7 @@
     }
   },
   "extensions": ["JuanBlanco.solidity", "MythX.mythxvsc"],
-  "postCreateCommand": "yarn",
+  "postCreateCommand": "scripts/post-create-command.sh",
   "features": {
     "github-cli": "latest"
   }
