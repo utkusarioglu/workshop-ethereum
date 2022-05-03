@@ -6,8 +6,32 @@
       "script": "test",
       "group": "test",
       "problemMatcher": [],
-      "label": "yarn test",
-      "detail": "Run tests on hardhat network"
+      "label": "yarn test all files",
+      "detail": "Run tests on hardhat network",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      }
+    },
+    {
+      "type": "shell",
+      "command": "yarn hardhat test ${relativeFile}",
+      "group": "test",
+      "problemMatcher": [],
+      "label": "yarn test $CURRENT_FILE",
+      "detail": "Test current file using hardhat",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      }
     }
   ]
 }
