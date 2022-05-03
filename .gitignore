@@ -6,3 +6,4 @@ cache
 /types
 /lib
 crytic-export
+/ignore
