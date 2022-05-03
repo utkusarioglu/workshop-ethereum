@@ -2,7 +2,7 @@ accounts:
   goerli:
     deployer:
       address: "0xaAA2b2b9bbB594409842Ddf15b9bD0bb6BE262d9"
-      balance: "100000000000000000000"
+      balance: "1000000000000000000000"
   local:
     deployer:
       address: "0x7a21917792d1be1986a5e1998bd248A259987f89"

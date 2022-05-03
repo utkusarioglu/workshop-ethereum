@@ -3,11 +3,11 @@ accounts:
     deployer:
       privateKey: LOCAL_DEPLOYER_PK
     user1:
-      privateKey: LOCAL_USER1_PK
+      privateKey: LOCAL_USER_1_PK
     user2:
-      privateKey: LOCAL_USER2_PK
+      privateKey: LOCAL_USER_2_PK
     user3:
-      privateKey: LOCAL_USER3_PK
+      privateKey: LOCAL_USER_3_PK
 
   goerli:
     deployer:
