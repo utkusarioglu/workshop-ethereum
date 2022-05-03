@@ -26,6 +26,7 @@ import {
 
 const hardhatConfig = {
   solidity: "0.8.9",
+  defaultNetwork: "hardhat",
   paths: {
     sources: "./src/contracts",
     tests: "tests",
