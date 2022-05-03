@@ -1,11 +1,11 @@
 {
-  "name": "Hardhat",
+  "name": "ethereum.d-game.workshops.utkusarioglu.com",
   "dockerComposeFile": [
     "../.docker/docker-compose.dev.yml",
     "docker-compose.yml"
   ],
   "service": "hardhat",
-  "workspaceFolder": "/usr/src/app/hardhat",
+  "workspaceFolder": "/utkusarioglu/workshops/d-game/ethereum",
   "settings": {
     "workbench.colorCustomizations": {
       "activityBar.background": "#a40"

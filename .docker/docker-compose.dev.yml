@@ -5,4 +5,4 @@ services:
     image: utkusarioglu/ethereum-dev-environment
     container_name: workshop-hardhat
     volumes:
-      - ..:/usr/src/app/hardhat
+      - ..:/utkusarioglu/workshops/d-game/ethereum
