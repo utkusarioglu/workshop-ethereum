@@ -1,3 +1,6 @@
+deployArgs:
+  uri: "http://localhost/{id}.json"
+
 accounts:
   goerli:
     deployer:
