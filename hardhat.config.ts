@@ -22,7 +22,7 @@ import {
   hardhatAccounts,
   mumbaiAccounts,
   namedAccounts,
-} from "_services/accounts";
+} from "_services/account.service";
 
 const hardhatConfig = {
   solidity: "0.8.9",
