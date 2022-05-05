@@ -92,13 +92,14 @@ export const localAccounts = Object.entries(
  */
 export async function beforeEachCommon<C extends Contract>(
   contractName: string,
+  args: any[],
   index: number
 ) {
   await run("compile", { quiet: true, noTypechain: true });
   const deployer = await getSigner(0);
   const signer = await getSigner(index);
   const contract = await ethers.getContractFactory(contractName, deployer);
-  const deployerInstance = (await contract.deploy()) as C;
+  const deployerInstance = (await contract.deploy(...args)) as C;
   await deployerInstance.deployed();
   const signerInstance = deployerInstance.connect(signer) as C;
   return {
