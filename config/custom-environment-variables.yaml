@@ -17,4 +17,8 @@ apiKeys:
   coinMarketCap-disabled: COINMARKETCAP_API_KEY
   infura: INFURA_API_KEY
   etherscan: ETHERSCAN_API_KEY
-  alchemy: ALCHEMY_API_KEY
+  alchemy:
+    ethereum:
+      kovan: ALCHEMY_ETHEREUM_KOVAN_API_KEY
+    polygon:
+      mumbai: ALCHEMY_POLYGON_MUMBAI_API_KEY
