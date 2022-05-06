@@ -2,6 +2,7 @@ name: Slither
 
 on:
   workflow_dispatch:
+  workflow_call:
 
 jobs:
   run-slither-analysis:
