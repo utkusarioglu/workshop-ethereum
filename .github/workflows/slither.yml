@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: utkusarioglu/ethereum-dev-environment
-      options: --user root
+      options: --user 0
       env:
         COINMARKETCAP_API_KEY: ${{ secrets.COINMARKETCAP_API_KEY }}
         INFURA_API_KEY: ${{ secrets.INFURA_API_KEY }}
