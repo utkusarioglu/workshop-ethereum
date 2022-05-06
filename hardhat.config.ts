@@ -51,8 +51,8 @@ const hardhatConfig = {
       tags: ["local"],
       forking: {
         enabled: true,
-        url: `https://eth-kovan.alchemyapi.io/v2/${config.get(
-          "apiKeys.alchemy"
+        url: `https://polygon-mumbai.g.alchemy.com/v2/${config.get(
+          "apiKeys.alchemy.polygon.mumbai"
         )}`,
       },
     },
