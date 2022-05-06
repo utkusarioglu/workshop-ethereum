@@ -7,3 +7,5 @@ cache
 /lib
 crytic-export
 /ignore
+/deployments/localhost
+/deployments/hardhat
