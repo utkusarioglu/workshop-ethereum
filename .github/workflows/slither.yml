@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: utkusarioglu/ethereum-dev-environment
+      options: --user root
     steps:
       - name: Checkout
         uses: actions/checkout@v2
