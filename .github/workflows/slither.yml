@@ -10,6 +10,9 @@ jobs:
     container:
       image: utkusarioglu/ethereum-dev-environment
       options: --user root
+      env:
+        ALCHEMY_POLYGON_MUMBAI_API_KEY:
+          ${{ secrets.ALCHEMY_POLYGON_MUMBAI_API_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
