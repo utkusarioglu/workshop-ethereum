@@ -8,8 +8,8 @@ jobs:
     name: Run Slither analysis
     runs-on: ubuntu-latest
     container:
-      image: utkusarioglu/ethereum-dev-environment
-      options: --user 0
+      image: utkusarioglu/ethereum-dev-environment:gh
+      options: --user=0
       env:
         COINMARKETCAP_API_KEY: ${{ secrets.COINMARKETCAP_API_KEY }}
         INFURA_API_KEY: ${{ secrets.INFURA_API_KEY }}
