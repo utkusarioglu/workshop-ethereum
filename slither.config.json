@@ -1,0 +1,4 @@
+{
+  "hardhat_artifacts_directory": "./lib/artifacts",
+  "filter_paths": "@openzeppelin"
+}
