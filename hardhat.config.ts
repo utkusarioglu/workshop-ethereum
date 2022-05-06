@@ -29,10 +29,10 @@ const hardhatConfig = {
   paths: {
     sources: "./src/contracts",
     tests: "tests",
-    cache: "cache",
+    cache: "lib/cache",
     artifacts: "lib/artifacts",
     imports: "lib/imports",
-    deployments: "lib/deployments",
+    deployments: "deployments",
     deploy: "src/deploy",
     newStorageLayoutPath: "lib/storage-layout",
   },
