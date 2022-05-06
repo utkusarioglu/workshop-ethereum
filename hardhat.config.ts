@@ -24,7 +24,7 @@ import {
 } from "_services/account.service";
 
 const hardhatConfig = {
-  solidity: "0.8.9",
+  solidity: "0.8.7",
   defaultNetwork: "hardhat",
   paths: {
     sources: "./src/contracts",
