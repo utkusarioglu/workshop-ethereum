@@ -69,7 +69,7 @@ RUN useradd -m hardhat
 # This line allows gh actions to run without the need for
 # root permissions
 RUN mkdir -p -m777 /github/home/.cache/hardhat-nodejs
-COPY ./docker/.bashrc /home/hardhat/.bashrc
+COPY .docker/.bashrc /home/hardhat/.bashrc
 USER hardhat
 # This is done to ensure that this is a non-root container
 RUN mkdir -p /home/hardhat/.config
