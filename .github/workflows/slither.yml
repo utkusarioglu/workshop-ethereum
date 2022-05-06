@@ -1,0 +1,18 @@
+name: Slither
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-slither-analysis:
+    name: Run Slither analysis
+    runs-on: ubuntu-latest
+    container:
+      image: utkusarioglu/ethereum-dev-environment
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Slither analysis
+        shell: bash
+        run: |
+          slither .
