@@ -1,6 +1,6 @@
 # ppa:ethereum is not yet available on 22.04
 FROM ubuntu:20.04
-
+SHELL ["/bin/bash", "-c"]
 ENV DEBIAN_FRONTEND=nonintercative
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
@@ -40,13 +40,21 @@ RUN apt-get update \
 
 RUN npm install --global yarn
 
-ENV VIRTUAL_ENV=/opt/venv
-RUN python3 -m venv $VIRTUAL_ENV
-ENV PATH="$VIRTUAL_ENV/bin:$PATH"
-COPY .docker/requirements.txt .
-RUN pip install -r requirements.txt --no-input --no-cache-dir
+ENV VIRTUAL_ENV_PATH_MYTHRIL=/opt/venv/mythril
+RUN python3 -m venv $VIRTUAL_ENV_PATH_MYTHRIL
+ENV PATH="$VIRTUAL_ENV_PATH_MYTHRIL/bin:$PATH"
+COPY .docker/requirements.mythril.txt .
+RUN source $VIRTUAL_ENV_PATH_MYTHRIL/bin/activate
+RUN pip install -r requirements.mythril.txt --no-input --no-cache-dir
 
-RUN cd $VIRTUAL_ENV/bin && \
+ENV VIRTUAL_ENV_PATH_SLITHER=/opt/venv/slither
+RUN python3 -m venv $VIRTUAL_ENV_PATH_SLITHER
+ENV PATH="$VIRTUAL_ENV_PATH_SLITHER/bin:$PATH"
+COPY .docker/requirements.slither.txt .
+RUN source $VIRTUAL_ENV_PATH_SLITHER/bin/activate
+RUN pip install -r requirements.slither.txt --no-input --no-cache-dir
+
+RUN cd $VIRTUAL_ENV_PATH_SLITHER/bin && \
   wget https://github.com/crytic/echidna/releases/download/v2.0.0/echidna-test-2.0.0-Ubuntu-18.04.tar.gz \
     -O echidna.tar.gz \
   && tar -xzf echidna.tar.gz \
@@ -57,7 +65,8 @@ ARG ROOT_PASS=root
 ENV PATH="${PATH}:${HOME}/.local/bin"
 RUN sh -c 'echo "root:$ROOT_PASS" | chpasswd'
 RUN useradd -m hardhat
-RUN mkdir -p /home/hardhat/.config/hardhat-nodejs
+RUN chown -R 1000:1000 /home/hardhat && chmod -R 755 /home/hardhat
+# RUN mkdir -p /home/hardhat/.config/hardhat-nodejs
 # This line allows gh actions to run without the need for
 # root permissions
 RUN mkdir -p -m777 /github/home/.cache/hardhat-nodejs

@@ -5,4 +5,3 @@ solc-select
 graphviz
 cbor2
 pyevmasm
-mythril
