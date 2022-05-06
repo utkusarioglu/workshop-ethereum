@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity 0.8.9;
+pragma solidity 0.8.7;
 import "hardhat/console.sol";
 
 struct Profile {
@@ -30,9 +30,9 @@ contract Profiles {
     return profile;
   }
 
-  function setProfile(string calldata _sprite, uint256 _size) external {
-    require(_size > 0, "SIZE_TOO_SMALL");
-    profiles[msg.sender] = Profile(_sprite, _size);
-    emit NewItem(msg.sender, _sprite, _size);
+  function setProfile(string calldata sprite, uint256 size) external {
+    require(size > 0, "SIZE_TOO_SMALL");
+    profiles[msg.sender] = Profile(sprite, size);
+    emit NewItem(msg.sender, sprite, size);
   }
 }
