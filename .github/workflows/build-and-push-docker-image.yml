@@ -28,7 +28,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           tags: |
-            utkusarioglu/ethereum-dev-environment:gh2
+            utkusarioglu/ethereum-dev-environment:latest
           file: .docker/Dockerfile.dev
           push: ${{ github.ref == 'refs/heads/main' }}
           build-args: |
