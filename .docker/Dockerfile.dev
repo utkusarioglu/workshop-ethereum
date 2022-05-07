@@ -75,5 +75,9 @@ RUN mkdir -p /home/hardhat/.config/hardhat-nodejs && \
 RUN mkdir -p /github/home/.cache/hardhat-nodejs && \
   chown -R 1000:1000 /github/home/.cache/hardhat-nodejs
 
+# This is required by matplotlib in mythril venv
+RUN mkdir -p /home/hardhat/.config/matplotlib && \
+  chown -R 1000:1000 /home/hardhat/.config/matplotlib 
+
 COPY .docker/.bashrc /home/hardhat/.bashrc
 USER hardhat
