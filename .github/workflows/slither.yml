@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: utkusarioglu/ethereum-dev-environment:latest
-      options: --user=0
+      # options: --user=0:0
       env:
         COINMARKETCAP_API_KEY: ${{ secrets.COINMARKETCAP_API_KEY }}
         INFURA_API_KEY: ${{ secrets.INFURA_API_KEY }}
@@ -36,4 +36,5 @@ jobs:
       - name: Slither analysis
         shell: bash
         run: |
+          source /opt/venv/slither/bin/activate
           slither .
