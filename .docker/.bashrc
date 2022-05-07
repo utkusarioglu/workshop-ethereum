@@ -112,7 +112,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# ls aliases
+alias ll='ls -alFh --group-directories-first'
+alias la='ls -A --group-directories-first'
+alias l='ls -CF'
+
 # Utku!
 set -o vi
-
 source $VIRTUAL_ENV_PATH_SLITHER/bin/activate
