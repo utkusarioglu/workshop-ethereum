@@ -1,9 +1,20 @@
 {
   "language": "Solidity",
+  "sources": {
+    "DGame.sol": {
+      "urls": ["src/contracts/DGame.sol"]
+    }
+  },
   "settings": {
     "remappings": [
+      "hardhat/=./node_modules/hardhat/",
       "@openzeppelin/=./node_modules/@openzeppelin/",
       "@chainlink/=./node_modules/@chainlink/"
-    ]
+    ],
+    "outputSelection": {
+      "*": {
+        "*": ["evm.bytecode"]
+      }
+    }
   }
 }
