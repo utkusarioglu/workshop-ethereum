@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: MIT
 
 pragma solidity 0.8.7;
-import "hardhat/console.sol";
 
 struct Profile {
   string config;
@@ -20,13 +19,13 @@ contract Profiles {
     );
   }
 
+  /// @dev #1 checks a value that will never be 0
   function getProfile() external view returns (Profile memory) {
     Profile memory profile = profiles[msg.sender];
-    // checks a value that will never be 0
     if (profile.size == 0) {
+      // #1
       return profiles[address(0)];
     }
-    // console.log("sprite: %s by %s", profile.config, msg.sender);
     return profile;
   }
 
@@ -34,5 +33,11 @@ contract Profiles {
     require(size > 0, "SIZE_TOO_SMALL");
     profiles[msg.sender] = Profile(sprite, size);
     emit NewItem(msg.sender, sprite, size);
+  }
+
+  /// this function is deliberately problematic.
+  /// it's intended for testing tools to catch
+  function check(uint256 a) external returns (bool) {
+    require(a >= 10);
   }
 }
