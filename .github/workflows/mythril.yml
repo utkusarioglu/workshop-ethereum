@@ -8,6 +8,9 @@ jobs:
   run-slither-analysis:
     name: Run Mythril analysis
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: /utkusarioglu/workshops/d-game/ethereum
     container:
       image: utkusarioglu/ethereum-dev-environment:latest
       env:
