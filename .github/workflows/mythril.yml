@@ -29,7 +29,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        path: /utkusarioglu/workshops/d-game/ethereum
+        with:
+          path: /utkusarioglu/workshops/d-game/ethereum
       - name: Install dependencies
         shell: bash
         run: yarn --frozen-lockfile --no-progress --production false
