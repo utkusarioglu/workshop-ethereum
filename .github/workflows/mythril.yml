@@ -23,7 +23,7 @@ jobs:
         LOCAL_USER_1_PK: ${{ secrets.LOCAL_USER_1_PK }}
         LOCAL_USER_2_PK: ${{ secrets.LOCAL_USER_2_PK }}
         LOCAL_USER_3_PK: ${{ secrets.LOCAL_USER_3_PK }}
-      # options: --user 0:0
+      options: --user 0:0
     steps:
       - name: Checkout
         uses: actions/checkout@v2
