@@ -34,10 +34,4 @@ contract Profiles {
     profiles[msg.sender] = Profile(sprite, size);
     emit NewItem(msg.sender, sprite, size);
   }
-
-  /// this function is deliberately problematic.
-  /// it's intended for testing tools to catch
-  function check(uint256 a) external returns (bool) {
-    require(a >= 10);
-  }
 }
