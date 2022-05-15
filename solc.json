@@ -3,6 +3,12 @@
   "sources": {
     "DGame.sol": {
       "urls": ["src/contracts/DGame.sol"]
+    },
+    "DGameAttack.sol": {
+      "urls": ["src/contracts/DGameAttack.sol"]
+    },
+    "SAttack.sol": {
+      "urls": ["src/contracts/SAttack.sol"]
     }
   },
   "settings": {
@@ -13,7 +19,7 @@
     ],
     "outputSelection": {
       "*": {
-        "*": ["evm.bytecode"]
+        "*": ["evm.bytecode.object"]
       }
     }
   }
