@@ -35,6 +35,4 @@ jobs:
         run: yarn hardhat compile
       - name: Mythril analysis
         shell: bash
-        run: |
-          source /opt/venv/mythril/bin/activate
-          myth analyze src/contracts/Profile.sol
+        run: scripts/mythril-analyze.sh

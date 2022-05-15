@@ -35,6 +35,4 @@ jobs:
         run: yarn hardhat compile
       - name: Slither analysis
         shell: bash
-        run: |
-          source /opt/venv/slither/bin/activate
-          slither .
+        run: scripts/slither-analyze.sh
