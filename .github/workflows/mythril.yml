@@ -33,6 +33,9 @@ jobs:
       - name: Compile contracts
         shell: bash
         run: yarn hardhat compile
+      - name: Install solc for crytic-compile
+        shell: bash
+        run: scripts/solc-select-install.sh
       - name: Mythril analysis
         shell: bash
         run: scripts/mythril-analyze.sh
