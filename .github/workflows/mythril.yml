@@ -8,9 +8,6 @@ jobs:
   run-slither-analysis:
     name: Run Mythril analysis
     runs-on: ubuntu-latest
-    # defaults:
-    #   run:
-    #     working-directory: /utkusarioglu/workshops/d-game/ethereum
     container:
       image: utkusarioglu/ethereum-dev-environment:latest
       env:
@@ -26,12 +23,10 @@ jobs:
         LOCAL_USER_1_PK: ${{ secrets.LOCAL_USER_1_PK }}
         LOCAL_USER_2_PK: ${{ secrets.LOCAL_USER_2_PK }}
         LOCAL_USER_3_PK: ${{ secrets.LOCAL_USER_3_PK }}
-      options: --user 0:0
+      # options: --user 0:0
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        # with:
-        #   path: /utkusarioglu/workshops/d-game/ethereum
       - name: Install dependencies
         shell: bash
         run: yarn --frozen-lockfile --no-progress --production false
