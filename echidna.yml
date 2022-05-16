@@ -1,2 +1,5 @@
 cryticArgs:
-  - "--config-file crytic.json"
+  - "--config-file=crytic.config.json"
+coverage: true
+estimateGas: true
+multi-abi: true
