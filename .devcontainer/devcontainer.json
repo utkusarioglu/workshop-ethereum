@@ -11,7 +11,11 @@
       "activityBar.background": "#a40"
     }
   },
-  "extensions": ["JuanBlanco.solidity", "MythX.mythxvsc"],
+  "extensions": [
+    "JuanBlanco.solidity",
+    "MythX.mythxvsc",
+    "joaompinto.vscode-graphviz"
+  ],
   "postCreateCommand": "scripts/post-create-command.sh",
   "features": {
     "github-cli": "latest"
