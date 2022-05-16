@@ -10,6 +10,7 @@ RUN apt-get update \
   curl \
   git \
   gpg-agent \
+  jq \
   libpython3-dev \
   libudev-dev \
   locales-all locales \
@@ -21,7 +22,7 @@ RUN apt-get update \
   sudo \
   vim \
   wget \
-  jq \
+  xdot \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
