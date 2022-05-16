@@ -12,7 +12,12 @@ const deployment: DeployFunction = async ({
   getNamedAccounts,
   storageLayout,
 }) => {
+  const enabled = true;
   const contractName = "DGame";
+  if (!enabled) {
+    console.log(`Skipping contract "${contractName}" as it is set as disabled`);
+    return;
+  }
   const { deployer } = await getNamedAccounts();
   assert(!!deployer, "Deployer not available");
   const instance = (await deploy(contractName, {
@@ -20,7 +25,7 @@ const deployment: DeployFunction = async ({
     args: [config.get("deployArgs.uri")],
   })) as any; // #1
   await storageLayout.export();
-  console.log(`${contractName} deployed at ${instance.address}`);
+  console.log(`"${contractName}" deployed at ${instance.address}`);
 };
 
 export default deployment;
