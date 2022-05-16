@@ -1,6 +1,6 @@
 {
   "hardhat_artifacts_directory": "./lib/artifacts",
-  "filter_paths": "src/contracts",
+  "filter_paths": "node_modules",
   "solc_remaps": [
     "@openzeppelin/=./node_modules/@openzeppelin/",
     "hardhat/=./node_modules/hardhat/",
