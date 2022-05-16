@@ -16,5 +16,4 @@ const deployment: DeployFunction = async ({
   console.log(`${contractName} deployed at ${instance.address}`);
 };
 
-// export default deployment;
-export default null;
+export default deployment;
