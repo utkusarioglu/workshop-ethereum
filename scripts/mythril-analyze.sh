@@ -2,26 +2,20 @@
 
 source /opt/venv/mythril/bin/activate
 
-# Notice that this code EXPECTS the file name and the contract name
-# to be the same. If you have a file named A.sol containing a contract
-# B, then jq will return `null` for its bytecode and the contract
-# will not be scanned
-CONTRACTS=$(jq -r '.sources | keys[] | gsub(".sol";"")' solc.json)
+# Goes through the contracts in `src/contracts` uses `solc.json` at repo 
+# root for remappings needed for `crytic-compile` to do its thing
+# @dev
+# mythril for some reason expects only the `settings` section of the config
+# object. To retrieve this section, a temp file is created at `TEMP_JSON`
+main() {
+  TEMP_JSON=/tmp/solc-settings.json
+  jq '.settings' solc.json > $TEMP_JSON
+  for contract in src/contracts/*;
+  do
+    echo "Analyzing \"$contract\"..."
+    myth analyze $contract --solc-json $TEMP_JSON
+  done
+  rm $TEMP_JSON
+}
 
-echo "Contracts:"
-echo $CONTRACTS
-
-for CONTRACT in $CONTRACTS;
-do 
-  FILE="$CONTRACT.sol"
-  BYTECODE=$(\
-    solc --standard-json solc.json --allow-paths $(pwd) | \
-    jq -r '.contracts["'$FILE'"].'$CONTRACT'.evm.bytecode.object')
-  if [ "$BYTECODE" == "null" ]
-  then 
-    echo "Skipping $CONTRACT as there is no bytecode to analyze"
-    continue
-  fi
-  echo "Analyzing $CONTRACT..."
-  myth analyze -c $BYTECODE
-done
+main
